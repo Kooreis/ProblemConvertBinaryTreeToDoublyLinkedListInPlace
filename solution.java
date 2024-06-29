@@ -1,9 +1,20 @@
-class Node {
-    int data;
-    Node left, right;
+class BinaryTree {
+    Node root;
 
-    Node(int item) {
-        data = item;
-        left = right = null;
+    void BinaryTree2DoubleLinkedList(Node root) {
+        if (root == null)
+            return;
+
+        BinaryTree2DoubleLinkedList(root.left);
+
+        if (prev == null)
+            head = root;
+        else {
+            root.left = prev;
+            prev.right = root;
+        }
+        prev = root;
+
+        BinaryTree2DoubleLinkedList(root.right);
     }
 }
