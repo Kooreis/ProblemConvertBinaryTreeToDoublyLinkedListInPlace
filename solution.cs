@@ -1,13 +1,24 @@
-using System;
-
-public class Node
+public class BinaryTree
 {
-    public int data;
-    public Node left, right;
+    Node root;
 
-    public Node(int item)
+    void BinaryTree2DoubleLinkedList(Node root, ref Node head)
     {
-        data = item;
-        left = right = null;
+        if (root == null)
+            return;
+
+        BinaryTree2DoubleLinkedList(root.left, ref head);
+
+        if (prev == null)
+            head = root;
+        else
+        {
+            root.left = prev;
+            prev.right = root;
+        }
+        prev = root;
+
+        BinaryTree2DoubleLinkedList(root.right, ref head);
     }
-}
+
+    Node prev = null;
